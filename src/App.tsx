@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import GlobalStyle from 'styles/globalStyles'
+import styled from 'styled-components'
+import Header from 'components/header'
+import SideBar from 'components/sidebar'
+import wallpaper from 'assets/images/wallpaper.png'
+
+const Container = styled.div`
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+`
+const Main = styled.main`
+	display: flex;
+	flex: 1 1 auto;
+	background-image: url(${wallpaper});
+	background-position: center;
+	background-size: cover;
+`
+const Content = styled.section`
+	width: 100%;
+`
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<GlobalStyle />
+			<Container>
+				<Header />
+				<Main>
+					<SideBar />
+					<Content>Content</Content>
+				</Main>
+			</Container>
+		</>
+	)
 }
 
-export default App;
+export default App
