@@ -1,9 +1,21 @@
 import React from 'react'
-import GlobalStyle from 'styles/globalStyles'
 import styled from 'styled-components'
 import Header from 'components/header'
 import SideBar from 'components/sidebar'
 import wallpaper from 'assets/images/wallpaper.png'
+
+function App() {
+	return (
+		<Container>
+			<Header />
+			<Main>
+				<Image src={wallpaper} alt='wallpaper' />
+				<SideBar />
+				<Content>Content</Content>
+			</Main>
+		</Container>
+	)
+}
 
 const Container = styled.div`
 	height: 100vh;
@@ -13,27 +25,17 @@ const Container = styled.div`
 const Main = styled.main`
 	display: flex;
 	flex: 1 1 auto;
-	background-image: url(${wallpaper});
-	background-position: center;
-	background-size: cover;
+`
+const Image = styled.img`
+	height: 100%;
+	z-index: -10;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 `
 const Content = styled.section`
 	width: 100%;
 `
-
-function App() {
-	return (
-		<>
-			<GlobalStyle />
-			<Container>
-				<Header />
-				<Main>
-					<SideBar />
-					<Content>Content</Content>
-				</Main>
-			</Container>
-		</>
-	)
-}
 
 export default App

@@ -17,7 +17,13 @@ const Container = styled.div`
 `
 const Apps = styled.div``
 const StyledViewAppIcon = styled(ViewAppIcon)`
-	cursor: pointer;
+	border-radius: 2px;
+	& path {
+		fill: ${colors.primaryText};
+	}
+	&:hover {
+		background-color: ${colors.bgHover};
+	}
 `
 
 function SideBar() {
