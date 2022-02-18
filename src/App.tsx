@@ -2,14 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import Header from 'components/header'
 import SideBar from 'components/sidebar'
-import wallpaper from 'assets/images/wallpaper.png'
+import wallpaper from 'assets/images/wallpaper.jpg'
+import zIndex from 'styles/zIndexLevels'
 
 function App() {
 	return (
 		<Container>
 			<Header />
 			<Main>
-				<Image src={wallpaper} alt='wallpaper' />
+				<ImgWrapper>
+					<img src={wallpaper} alt='wallpaper' />
+				</ImgWrapper>
 				<SideBar />
 				<Content>Content</Content>
 			</Main>
@@ -26,13 +29,14 @@ const Main = styled.main`
 	display: flex;
 	flex: 1 1 auto;
 `
-const Image = styled.img`
+const ImgWrapper = styled.div`
+	width: 100%;
 	height: 100%;
-	z-index: -10;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	z-index: ${zIndex.levelBottom};
+	overflow: hidden;
 `
 const Content = styled.section`
 	width: 100%;

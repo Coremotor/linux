@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import months from 'components/date/months'
 import HeaderBlocks from 'layouts/headerBlocks'
+import Calendar from 'components/calendar'
 
 type TProps = {
 	onClick: () => void
@@ -28,6 +29,7 @@ function DateBlock({ onClick, isActive }: TProps) {
 			<Text>
 				{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
 			</Text>
+			{isActive && <Calendar />}
 		</HeaderBlocks>
 	)
 }

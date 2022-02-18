@@ -4,6 +4,7 @@ const colors = {
 	primaryBackground: '#1d1d1d',
 	secondaryBackground: '#fafafa',
 	headersBlocksBorder: '#EB6637',
+	primaryBorder: '#CDCDCD',
 	sidebarBgTop: 'rgba(33, 21, 31, 0.5)',
 	sidebarBgBottom: 'rgba(33, 21, 31, 1)',
 	bgHover: 'rgba(255, 255, 255, 0.1)',

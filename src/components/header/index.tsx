@@ -1,21 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import colors from 'styles/colors'
 import Activities from 'components/activities'
 import DateBlock from 'components/date'
 import Status from 'components/status'
-
-enum EBlocks {
-	activities = 'activities',
-	date = 'date',
-	status = 'status',
-}
+import { EBlocks } from 'store/modules/modals/types'
+import { useAppDispatch, useAppSelector } from 'store/hooks'
+import { setActiveHeaderBlock } from 'store/modules/modals/reducer'
+import magicNumbers from 'magicNumbers'
 
 function Header() {
-	const [active, setActive] = useState<EBlocks | null>(null)
+	const active = useAppSelector(state => state.modals.activeBlock)
+	const dispatch = useAppDispatch()
+
 	const onBlock = (name: EBlocks) => {
-		setActive(name)
+		dispatch(setActiveHeaderBlock(name))
 	}
+
 	return (
 		<Container>
 			<Activities
@@ -34,6 +35,7 @@ function Header() {
 	)
 }
 const Container = styled.header`
+	height: ${magicNumbers.HEADER_HEIGHT}px;
 	display: flex;
 	justify-content: space-between;
 	color: ${colors.primaryText};
