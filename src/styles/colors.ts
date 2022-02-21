@@ -3,6 +3,7 @@ const colors = {
 	secondaryText: '#3D3D3D',
 	primaryBackground: '#1d1d1d',
 	secondaryBackground: '#fafafa',
+	icons: '#bebebe',
 	headersBlocksBorder: '#EB6637',
 	primaryBorder: '#CDCDCD',
 	sidebarBgTop: 'rgba(33, 21, 31, 0.5)',

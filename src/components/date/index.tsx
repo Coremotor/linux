@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import months from 'components/date/months'
 import HeaderBlocks from 'layouts/headerBlocks'
 import Calendar from 'components/calendar'
+import { months_short } from 'helpers'
 
 type TProps = {
 	onClick: () => void
@@ -22,14 +22,14 @@ function DateBlock({ onClick, isActive }: TProps) {
 
 	return (
 		<HeaderBlocks isActive={isActive} onClick={onClick}>
-			<Text $mr={5}>{months[date.getMonth()]}</Text>
+			<Text $mr={5}>{months_short[date.getMonth()]}</Text>
 			<Text $mr={10}>{date.getDate()}</Text>
 			<Text>{date.getHours()}</Text>
 			<Text>:</Text>
 			<Text>
 				{date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}
 			</Text>
-			{isActive && <Calendar />}
+			{isActive && <Calendar date={date} />}
 		</HeaderBlocks>
 	)
 }
