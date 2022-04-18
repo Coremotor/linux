@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import HeaderBlocks from 'layouts/headerBlocks'
 import Calendar from 'components/calendar'
-import { months_short } from 'helpers'
+import { months_short } from 'helpers/dates'
 
 type TProps = {
 	onClick: () => void

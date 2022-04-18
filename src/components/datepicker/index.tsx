@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { days_full, months_full } from 'helpers'
+import { days_full, months_full } from 'helpers/dates'
 
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'

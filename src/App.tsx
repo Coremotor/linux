@@ -4,6 +4,7 @@ import Header from 'components/header'
 import SideBar from 'components/sidebar'
 import wallpaper from 'assets/images/wallpaper.jpg'
 import zIndex from 'styles/zIndexLevels'
+import Desktop from 'components/desktop'
 
 function App() {
 	return (
@@ -14,7 +15,7 @@ function App() {
 					<img src={wallpaper} alt='wallpaper' />
 				</ImgWrapper>
 				<SideBar />
-				<Content>Content</Content>
+				<Desktop />
 			</Main>
 		</Container>
 	)
@@ -28,6 +29,7 @@ const Container = styled.div`
 const Main = styled.main`
 	display: flex;
 	flex: 1 1 auto;
+	overflow: hidden;
 `
 const ImgWrapper = styled.div`
 	width: 100%;
@@ -36,10 +38,6 @@ const ImgWrapper = styled.div`
 	justify-content: center;
 	position: fixed;
 	z-index: ${zIndex.levelBottom};
-	overflow: hidden;
-`
-const Content = styled.section`
-	width: 100%;
 `
 
 export default App
