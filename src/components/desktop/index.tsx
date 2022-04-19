@@ -1,14 +1,33 @@
 import styled from 'styled-components'
 import React, { useEffect, useState } from 'react'
-import { Item, makeGrid, sortList } from 'helpers/buildDesktop'
+import { Item, createGrid, sortList } from 'helpers/buildDesktop'
+import Folder from 'components/folder'
+
+const initialState = [
+	{
+		id: `id${0}`,
+		order: 0,
+		el: <Folder name='folder' />,
+	},
+	{
+		id: `id${10}`,
+		order: 10,
+		el: <Folder name='folder2' />,
+	},
+	{
+		id: `id${20}`,
+		order: 20,
+		el: <Folder name='folder3' />,
+	},
+]
 
 function Desktop() {
-	const [grid, setGrid] = useState<Item[]>(makeGrid())
-	const [currentItem, setCurrentItem] = useState<Item | null>(null)
+	const [grid, setGrid] = useState<Item[]>(createGrid())
+	const [currentGridItem, setCurrentGridItem] = useState<Item | null>(null)
 
 	const dragStart = (ev: React.DragEvent<HTMLDivElement>, item: Item) => {
-		setCurrentItem(item)
-		ev.currentTarget.style.background = 'lightgray'
+		setCurrentGridItem(item)
+		// ev.currentTarget.style.background = 'lightgray'
 	}
 
 	const end = (ev: React.DragEvent<HTMLDivElement>) => {
@@ -17,13 +36,13 @@ function Desktop() {
 
 	const drop = (ev: React.DragEvent<HTMLDivElement>, item: Item) => {
 		ev.preventDefault()
-		if (currentItem) {
+		if (currentGridItem) {
 			setGrid(
 				grid.map(i => {
 					if (i.id === item.id) {
-						return { ...i, order: currentItem.order }
+						return { ...i, order: currentGridItem.order }
 					}
-					if (i.id === currentItem.id) {
+					if (i.id === currentGridItem.id) {
 						return { ...i, order: item.order }
 					}
 					return i
@@ -38,7 +57,13 @@ function Desktop() {
 		ev.currentTarget.style.background = 'rgba(0, 0, 0, 0.2)'
 	}
 
-	useEffect(() => {}, [])
+	useEffect(() => {
+		const a = grid
+		initialState.forEach(i => {
+			a[i.order] = i
+		})
+		setGrid([...a])
+	}, [])
 
 	return (
 		<Container>
@@ -52,7 +77,6 @@ function Desktop() {
 					onDragEnd={end}
 					onDragOver={dragOver}
 					onDrop={ev => drop(ev, i)}
-					onDoubleClick={e => console.log(e)}
 				>
 					{i.el}
 				</Cell>
@@ -67,7 +91,7 @@ const Container = styled.div`
 	width: 100%;
 	overflow: hidden;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, 100px);
+	grid-template-columns: repeat(auto-fit, 120px);
 `
 const Cell = styled.div`
 	height: 120px;
