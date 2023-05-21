@@ -6,7 +6,7 @@ export type Item = {
 
 export const createGrid = () => {
 	let a: Item[] = []
-	for (let i = 0; i < 100; i++) {
+	for (let i = 0; i < 500; i++) {
 		a.push({
 			id: `id${i}`,
 			order: i,

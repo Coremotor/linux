@@ -1,25 +1,7 @@
 import styled from 'styled-components'
 import React, { useEffect, useState } from 'react'
 import { Item, createGrid, sortList } from 'helpers/buildDesktop'
-import Folder from 'components/folder'
-
-const initialState = [
-	{
-		id: `id${0}`,
-		order: 0,
-		el: <Folder name='folder' />,
-	},
-	{
-		id: `id${10}`,
-		order: 10,
-		el: <Folder name='folder2' />,
-	},
-	{
-		id: `id${20}`,
-		order: 20,
-		el: <Folder name='folder3' />,
-	},
-]
+import { initialDesktopState } from 'components/desktop/initialDesktopState'
 
 function Desktop() {
 	const [grid, setGrid] = useState<Item[]>(createGrid())
@@ -27,7 +9,6 @@ function Desktop() {
 
 	const dragStart = (ev: React.DragEvent<HTMLDivElement>, item: Item) => {
 		setCurrentGridItem(item)
-		// ev.currentTarget.style.background = 'lightgray'
 	}
 
 	const end = (ev: React.DragEvent<HTMLDivElement>) => {
@@ -59,7 +40,7 @@ function Desktop() {
 
 	useEffect(() => {
 		const a = grid
-		initialState.forEach(i => {
+		initialDesktopState.forEach(i => {
 			a[i.order] = i
 		})
 		setGrid([...a])
@@ -89,15 +70,13 @@ export default Desktop
 
 const Container = styled.div`
 	width: 100%;
+	height: 100vh;
 	overflow: hidden;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, 120px);
 `
 const Cell = styled.div`
 	height: 120px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 1px solid black;
-	font-size: 20px;
+	width: 120px;
+	//border: 1px solid black;
 `
