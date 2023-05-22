@@ -1,5 +1,7 @@
 import React, { FC, useState } from 'react'
 import styled from 'styled-components'
+import { createPortal } from 'react-dom'
+import ImageView from 'components/imageView'
 
 type TProps = {
 	src: string
@@ -13,9 +15,15 @@ const ImageFile: FC<TProps> = ({ src, title }) => {
 	const closeFile = () => setOpen(false)
 
 	return (
-		<Container>
+		<Container onDoubleClick={openFile}>
 			<Image src={src} />
 			<div>{title || ''}</div>
+
+			{open &&
+				createPortal(
+					<ImageView onClose={closeFile} src={src} />,
+					document.body
+				)}
 		</Container>
 	)
 }
