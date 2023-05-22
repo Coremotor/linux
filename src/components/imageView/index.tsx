@@ -2,6 +2,8 @@ import React, { FC, useState } from 'react'
 import styled from 'styled-components'
 import WindowHeader from 'components/windowHeader'
 import colors from 'styles/colors'
+import plusIcon from 'assets/icons/plus.png'
+import minusIcon from 'assets/icons/minus.png'
 
 type TProps = {
 	onClose: () => void
@@ -20,8 +22,8 @@ const ImageView: FC<TProps> = ({ onClose, src }) => {
 				<Image src={src} alt='image' $scale={scale} />
 			</Content>
 			<Scale>
-				<div onClick={scaleUp}>UP</div>
-				<div onClick={scaleDown}>DOWN</div>
+				<ButtonPlus onClick={scaleUp} />
+				<ButtonMinus onClick={scaleDown} />
 			</Scale>
 		</Container>
 	)
@@ -54,7 +56,29 @@ const Image = styled.img<{ $scale: number }>`
 `
 const Scale = styled.div`
 	position: absolute;
-	background-color: white;
-	top: 50px;
+	top: 100px;
 	right: 50px;
+	display: flex;
+	flex-direction: column;
+`
+const Button = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #dadada;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	padding: 5px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+`
+const ButtonPlus = styled(Button)`
+	background-image: url(${plusIcon});
+`
+const ButtonMinus = styled(Button)`
+	background-image: url(${minusIcon});
 `
