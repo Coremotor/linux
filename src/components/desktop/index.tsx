@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import React, { useEffect, useState } from 'react'
 import { Item, createGrid, sortList } from 'helpers/buildDesktop'
-import { initialDesktopState } from 'components/desktop/initialDesktopState'
+import { initialDesktopState } from 'data/initialDesktopState'
 
 function Desktop() {
 	const [grid, setGrid] = useState<Item[]>(createGrid())

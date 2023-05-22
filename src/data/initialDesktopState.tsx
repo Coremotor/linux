@@ -1,11 +1,13 @@
 import Folder from 'components/folder'
 import React from 'react'
+import { nirFolderContent } from 'data/nir'
+import { uwFolderContent } from 'data/uw'
 
 export const initialDesktopState = [
 	{
 		id: `id${0}`,
 		order: 0,
-		el: <Folder name='Умные краны' content={['string 0']} />,
+		el: <Folder name='Умные краны' content={uwFolderContent} />,
 	},
 	{
 		id: `id${1}`,
@@ -30,6 +32,6 @@ export const initialDesktopState = [
 	{
 		id: `id${5}`,
 		order: 5,
-		el: <Folder name='НИР' content={['string 5']} />,
+		el: <Folder name='НИР' content={nirFolderContent} />,
 	},
 ]

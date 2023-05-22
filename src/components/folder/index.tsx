@@ -13,6 +13,7 @@ type TProps = {
 const Folder: FC<TProps> = ({ name, content }) => {
 	const [showContent, setShowContent] = useState(false)
 	const onDoubleClick = () => setShowContent(true)
+	const closeWindow = () => setShowContent(false)
 
 	return (
 		<>
@@ -22,7 +23,10 @@ const Folder: FC<TProps> = ({ name, content }) => {
 			</Container>
 
 			{showContent &&
-				createPortal(<FolderWindow content={content} />, document.body)}
+				createPortal(
+					<FolderWindow content={content} onClose={closeWindow} />,
+					document.body
+				)}
 		</>
 	)
 }
