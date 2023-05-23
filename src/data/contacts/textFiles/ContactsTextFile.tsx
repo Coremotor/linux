@@ -65,6 +65,16 @@ const ContactsTextFile = () => {
 					Telegram
 				</a>
 			</p>
+
+			<p>
+				<a
+					href='https://github.com/Coremotor'
+					target='_blank'
+					rel='noopener noreferrer'
+				>
+					GitHub
+				</a>
+			</p>
 		</>
 	)
 }
