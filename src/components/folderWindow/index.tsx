@@ -21,8 +21,8 @@ export default FolderWindow
 const Container = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 600px;
-	height: 400px;
+	max-width: 600px;
+	max-height: 400px;
 	position: fixed;
 	top: 100px;
 	left: 100px;

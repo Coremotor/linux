@@ -6,6 +6,8 @@ import { campFolderContent } from 'data/camp'
 import { oksAdmFolderContent } from 'data/oks_adm'
 import { oksLkFolderContent } from 'data/oks_lk'
 import { oksWpFolderContent } from 'data/oks_wp'
+import { psyFolderContent } from 'data/psy'
+import { contactsTextFiles } from 'data/contacts/textFiles'
 
 export const initialDesktopState = [
 	{
@@ -37,5 +39,15 @@ export const initialDesktopState = [
 		id: `id${5}`,
 		order: 5,
 		el: <Folder name='НИР' content={nirFolderContent} />,
+	},
+	{
+		id: `id${6}`,
+		order: 6,
+		el: <Folder name='PSY Site' content={psyFolderContent} />,
+	},
+	{
+		id: `id${7}`,
+		order: 7,
+		el: <Folder name='contacts' content={contactsTextFiles} />,
 	},
 ]
