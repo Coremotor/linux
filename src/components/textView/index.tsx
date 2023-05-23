@@ -21,7 +21,7 @@ export default TextView
 
 const Container = styled.div`
 	width: 50vw;
-	//height: 60vh;
+	height: 60%;
 	display: flex;
 	flex-direction: column;
 	position: fixed;
